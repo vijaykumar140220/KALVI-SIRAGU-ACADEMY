@@ -1,0 +1,108 @@
+.courses-wrapper {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a1a4f, #223c88);
+}
+
+.courses-container {
+  width: 900px;
+  text-align: center;
+}
+
+.courses-container h1 {
+  color: #2e86ff;
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  background: rgba(255, 215, 0, 0.2);
+  color: gold;
+}
+
+/* INSTAGRAM BUTTON */
+.insta-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #e1306c;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* GOOGLE MAP */
+.map-container {
+  margin-top: 40px;
+}
+
+/* WHATSAPP FLOAT BUTTON */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+}
+
+/* DARK MODE SUPPORT */
+body.light .contact-info,
+body.light .contact-form {
+  background: #f3f3f3;
+  color: black;
+}
+
+body.dark .contact-info,
+body.dark .contact-form {
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  .contact-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100% !important;
+  }
+
+}
+

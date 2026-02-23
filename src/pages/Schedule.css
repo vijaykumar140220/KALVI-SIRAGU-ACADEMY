@@ -1,0 +1,54 @@
+.schedule-wrapper {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a1a4f, #223c88);
+}
+
+.schedule-container {
+  width: 800px;
+  text-align: center;
+}
+
+.schedule-container h1 {
+  color: #2e86ff;
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+.schedule-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+th {
+  background: gold;
+  color: #0a1a4f;
+  padding: 15px;
+  font-size: 18px;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sunday {
+  background: rgba(255, 215, 0, 0.15);
+  font-weight: bold;
+}

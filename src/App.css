@@ -13,6 +13,38 @@
   }
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+  color: #0d6efd;
+}
+.dark-mode {
+  background: #0a1a4f;
+  color: white;
+  min-height: 100vh;
+}
+
+.light-mode {
+  background: #f5f5f5;
+  color: #000;
+  min-height: 100vh;
+}
+.dark-mode {
+  background-color: #0a1a4f;
+  color: white;
+  min-height: 100vh;
+}
+
+.light-mode {
+  background-color: #f4f4f4;
+  color: black;
+  min-height: 100vh;
+}
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

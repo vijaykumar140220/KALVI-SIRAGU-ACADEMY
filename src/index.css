@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: all 0.4s ease;
+}
+
+/* DARK MODE */
+body.dark {
+  background-color: #0a1a4f;
+  color: white;
+}
+
+/* LIGHT MODE */
+body.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+body {
+  margin: 0;
+  transition: all 0.4s ease;
+}
+
+body.dark {
+  background-color: #0a1a4f;
+  color: white;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: black;
+}
+
