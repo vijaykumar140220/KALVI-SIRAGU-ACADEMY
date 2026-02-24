@@ -23,7 +23,7 @@ function Schedule() {
             <tbody>
               <tr>
                 <td>Monday – Saturday</td>
-                <td>4:30 PM – 8:30 PM</td>
+                <td>5:00 PM – 8:30 PM</td>
               </tr>
               <tr className="sunday">
                 <td>Sunday</td>

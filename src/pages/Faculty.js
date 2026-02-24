@@ -6,22 +6,32 @@ function Faculty() {
     {
       name: "Mr. Naveen Kumar",
       qualification: "M.Sc., B.Ed., PGDCA",
-      subject: "Mathematics & Computer Science"
+      subject: "MATHEMATICS AND COMPUTER SCIENCE 👆🏻"
     },
     {
       name: "Ms. Hema",
       qualification: "M.Sc., B.Ed.",
-      subject: "Science"
+      subject: "MATHEMATICS AND PHYSICS 👆🏻"
     },
     {
       name: "Mr. Arivazhagan",
       qualification: "M.Sc., B.Ed.",
-      subject: "Physics"
+      subject: "MATHEMATICS AND COMPUTER SCIENCE 👆🏻"
     },
     {
       name: "Ms. Jebarani",
       qualification: "M.Sc., B.Ed.",
-      subject: "Chemistry"
+      subject: "BUSINESS MATHEMATICS AND BIOLOGY 👆🏻"
+    },
+    {
+      name: "Ms. SASITHARAN ",
+      qualification: "M.Sc., B.Ed.",
+      subject: "MATHEMATICS AND CHEMISTRY 👆🏻"
+    },
+    {
+      name: "Ms. KEERTHANA ",
+      qualification: "M.COM., B.Ed",
+      subject: "ACCOUNTANCY AND COMMERCE 👆🏻"
     }
   ];
 
