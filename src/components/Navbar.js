@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../assets/Kalvi siragu academy logo.jpeg";
+import logo from "../assets/logo1.png";
 import "./Navbar.css";
 
 function Navbar() {
