@@ -18,29 +18,40 @@ function Home() {
 
             <motion.div
               className="hero-left"
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
               <img src={logo} alt="Academy Logo" className="hero-logo" />
+
               <h1>KALVI SIRAGU ACADEMY</h1>
-              <p>Empowering Minds. Building Futures.</p>
+              <p>EDUCATION IS THE WING OF LIFE</p>
 
-              <button
-                className="explore-btn"
-                onClick={() => navigate("/courses")}
-              >
-                Explore Courses
-              </button>
+              {/* BUTTON GROUP */}
+              <div className="hero-buttons">
+                <button
+                  className="explore-btn"
+                  onClick={() => navigate("/courses")}
+                >
+                  Explore Courses
+                </button>
 
-              <button
-                className="founder-btn"
-                onClick={() => setShowFounder(true)}
-              >
-                Founder’s Message
-              </button>
+                <button
+                  className="faculty-btn"
+                  onClick={() => navigate("/faculty")}
+                >
+                  Our Faculty
+                </button>
+
+                <button
+                  className="founder-btn"
+                  onClick={() => setShowFounder(true)}
+                >
+                  Founder’s Message
+                </button>
+              </div>
+
             </motion.div>
-
           </div>
         ) : (
           /* ================= FOUNDER CENTER MODE ================= */
