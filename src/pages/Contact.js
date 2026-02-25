@@ -59,7 +59,7 @@ function Contact() {
             </p>
 
             <h3>📞 Phone</h3>
-            <p>+91 96295 44748</p>
+            <p>+91 63818 83760</p>
             <p>+91 86374 74173</p>
 
             <h3>📸 Instagram</h3>
@@ -115,7 +115,7 @@ function Contact() {
 
      {/* WHATSAPP FLOATING BUTTON */}
 <a
-  href="https://wa.me/919629544748"
+  href="https://wa.me/916381883760"
   className="whatsapp-float"
   target="_blank"
   rel="noopener noreferrer"
