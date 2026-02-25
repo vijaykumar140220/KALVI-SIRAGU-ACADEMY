@@ -99,6 +99,31 @@
   color: #4da3ff;
 }
 
+.founder {
+  background: #ffffff;
+  text-align: center;
+}
+
+.founder h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #1e3c72;
+}
+
+.founder p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 15px auto;
+  color: #333;
+}
+
+.founder-sign {
+  margin-top: 20px;
+  font-style: italic;
+  color: #1e3c72;
+}
+
 /* GRID */
 .grid-2 {
   display: grid;

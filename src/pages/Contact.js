@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { FaWhatsapp } from "react-icons/fa";
 import "./Contact.css";
 
 function Contact() {
@@ -59,6 +60,7 @@ function Contact() {
 
             <h3>📞 Phone</h3>
             <p>+91 96295 44748</p>
+            <p>+91 86374 74173</p>
 
             <h3>📸 Instagram</h3>
             <a
@@ -111,15 +113,15 @@ function Contact() {
 
       </motion.div>
 
-      {/* WHATSAPP FLOATING BUTTON */}
-      <a
-        href="https://wa.me/919629544748"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬
-      </a>
+     {/* WHATSAPP FLOATING BUTTON */}
+<a
+  href="https://wa.me/919629544748"
+  className="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaWhatsapp size={28} />
+</a>
 
     </div>
   );

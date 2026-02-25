@@ -3,11 +3,11 @@ import "./Courses.css";
 
 function Courses() {
   const courseList = [
-    "Class 1–5 : All Subjects",
-    "Class 6–10 : All Subjects",
-    "Class 11–12 : Maths & Accounts",
-    "UG & PG : Computer Science"
-  ];
+  "6th – 12th : All Subjects (State Board,CBSE)",
+  "11th – 12th : Mathematics & Computer Science (CBSE)",
+  "UG & PG : Mathematics & Computer Science",
+  "Engineering : Mathematics & Computer Science"
+];
 
   return (
     <div className="courses-wrapper">
