@@ -3,22 +3,28 @@ import "./About.css";
 
 function About() {
   return (
+    
     <div className="about-page">
 
       {/* Hero Section */}
       <section className="hero">
-        <motion.div
-          className="hero-content"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1>Kalvi Siragu Academy</h1>
-          <p>
-            Empowering students from <strong>6th to 12th (CBSE & State Board)</strong> 
-            with strong fundamentals, confidence, and academic excellence.
-          </p>
-        </motion.div>
+       <motion.div
+  className="hero-content"
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  <h1>
+    <span className="highlight">Kalvi Siragu Academy</span>
+  </h1>
+
+  <p>
+    Empowering students from 
+    <span className="highlight-text"> 6th to 12th (CBSE & State Board) </span>
+    with strong fundamentals, confidence, and academic excellence.
+  </p>
+</motion.div>
+
       </section>
 
       {/* Who We Are */}

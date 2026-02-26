@@ -4,6 +4,8 @@ import "./Schedule.css";
 function Schedule() {
   return (
     <div className="schedule-wrapper">
+      <div className="overlay"></div>
+
       <motion.div
         className="schedule-container"
         initial={{ opacity: 0, y: 40 }}
