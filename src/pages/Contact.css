@@ -1,29 +1,50 @@
+/* ===== BACKGROUND WRAPPER ===== */
+
 .contact-wrapper {
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0a1a4f, #223c88);
+  padding: 60px 20px;
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* DARK OVERLAY */
+.contact-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 5, 35, 0.75);
+  z-index: 1;
+}
 
+/* CONTENT ABOVE OVERLAY */
 .contact-container {
+  position: relative;
+  z-index: 2;
   width: 1100px;
+  max-width: 95%;
   text-align: center;
 }
 
 .contact-container h1 {
-  color: #2e86ff;
+  color: gold;
   margin-bottom: 40px;
   font-size: 36px;
 }
 
+/* GRID */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
+/* LEFT INFO CARD */
 .contact-info {
   background: rgba(255, 255, 255, 0.08);
   padding: 30px;
@@ -38,6 +59,7 @@
   color: gold;
 }
 
+/* FORM CARD */
 .contact-form {
   background: rgba(255, 255, 255, 0.08);
   padding: 30px;
@@ -78,4 +100,53 @@
 .success-msg {
   color: lightgreen;
   margin-top: 10px;
+}
+
+/* INSTAGRAM BUTTON */
+.insta-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #e1306c;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* MAP */
+.map-container {
+  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+  .contact-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100% !important;
+  }
+
 }

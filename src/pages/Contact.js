@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa";
+import contactBg from "../assets/contact7.jpeg";   // ✅ IMPORT IMAGE
 import "./Contact.css";
 
 function Contact() {
@@ -9,29 +10,33 @@ function Contact() {
   const [success, setSuccess] = useState(false);
 
   const sendEmail = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  emailjs
-    .sendForm(
-      "service_qbkh22a",
-      "template_08yhz6q",
-      form.current,
-      "w50Cm76NNKzuboV9V"
-    )
-    .then((result) => {
+    emailjs
+      .sendForm(
+        "service_qbkh22a",
+        "template_08yhz6q",
+        form.current,
+        "w50Cm76NNKzuboV9V"
+      )
+      .then((result) => {
         console.log("SUCCESS!", result.text);
         setSuccess(true);
         form.current.reset();
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.error("FAILED...", error);
         alert("Failed to send message. Check console.");
-    });
-};
+      });
+  };
 
   return (
-    <div className="contact-wrapper">
-
+    <div
+      className="contact-wrapper"
+      style={{
+        backgroundImage: `url(${contactBg})`,   // ✅ BACKGROUND IMAGE
+      }}
+    >
       <motion.div
         className="contact-container"
         initial={{ opacity: 0, y: 50 }}
@@ -110,19 +115,17 @@ function Contact() {
             loading="lazy"
           ></iframe>
         </motion.div>
-
       </motion.div>
 
-     {/* WHATSAPP FLOATING BUTTON */}
-<a
-  href="https://wa.me/916381883760"
-  className="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <FaWhatsapp size={28} />
-</a>
-
+      {/* WHATSAPP FLOAT BUTTON */}
+      <a
+        href="https://wa.me/916381883760"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaWhatsapp size={28} />
+      </a>
     </div>
   );
 }

@@ -10,6 +10,37 @@ import Faculty from "./pages/Faculty";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
 
+/* MAIN SCROLL PAGE */
+function MainPage() {
+  return (
+    <>
+      <section id="home">
+        <Home />
+      </section>
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="courses">
+        <Courses />
+      </section>
+
+      <section id="faculty">
+        <Faculty />
+      </section>
+
+      <section id="schedule">
+        <Schedule />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+    </>
+  );
+}
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -28,12 +59,8 @@ function App() {
       <Navbar toggleMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/faculty" element={<Faculty />} />
-        <Route path="/schedule" element={<Schedule />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* SINGLE PAGE SCROLL ROUTE */}
+        <Route path="/" element={<MainPage />} />
       </Routes>
 
       <Footer />

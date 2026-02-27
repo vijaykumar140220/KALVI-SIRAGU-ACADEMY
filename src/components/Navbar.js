@@ -1,64 +1,57 @@
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/logo1.png";
 import "./Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
-  const handleLinkClick = () => {
-    setMenuOpen(false); // Close menu after clicking link (mobile)
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  const handleClick = () => {
+    setMenuOpen(false);
   };
 
   return (
     <nav className="navbar">
-      
-      {/* LEFT SIDE */}
       <div className="nav-left">
         <img src={logo} alt="Logo" className="logo" />
         <h2 className="academy-name">KALVI SIRAGU ACADEMY</h2>
       </div>
 
-      {/* NAV LINKS */}
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <li>
-          <NavLink to="/" className="nav-item" onClick={handleLinkClick}>
-            Home
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/about" className="nav-item" onClick={handleLinkClick}>
-            About
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/courses" className="nav-item" onClick={handleLinkClick}>
-            Courses
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/faculty" className="nav-item" onClick={handleLinkClick}>
-            Faculty
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/schedule" className="nav-item" onClick={handleLinkClick}>
-            Schedule
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/contact" className="nav-item" onClick={handleLinkClick}>
-            Contact
-          </NavLink>
-        </li>
+        {["home","about","courses","faculty","schedule","contact"].map((item) => (
+          <li key={item}>
+            <a
+              href={`#${item}`}
+              className={`nav-item ${active === item ? "active" : ""}`}
+              onClick={handleClick}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          </li>
+        ))}
       </ul>
 
-      {/* HAMBURGER ICON */}
       <div
         className={`hamburger ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -67,7 +60,6 @@ function Navbar() {
         <span></span>
         <span></span>
       </div>
-
     </nav>
   );
 }

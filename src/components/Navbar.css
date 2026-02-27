@@ -1,12 +1,20 @@
 /* NAVBAR */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #102060;
+
+  background: rgba(16, 32, 96, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
   color: gold;
-  flex-wrap: wrap;
 }
 
 /* LEFT SIDE */

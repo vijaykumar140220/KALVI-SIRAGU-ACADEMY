@@ -1,9 +1,34 @@
+/* COURSES BACKGROUND IMAGE */
 .courses-wrapper {
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0a1a4f, #223c88);
+  position: relative;
+  padding: 60px 20px;
+
+  background: url("../assets/courses.jpeg") no-repeat center center/cover;
+}
+
+/* DARK OVERLAY */
+.courses-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 18, 40, 0.85); /* dark overlay */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Keep content above overlay */
+.courses-container {
+  width: 1000px;
+  max-width: 95%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .courses-container {
@@ -12,9 +37,10 @@
 }
 
 .courses-container h1 {
-  color: #2e86ff;
-  margin-bottom: 40px;
-  font-size: 36px;
+  color: gold;
+  margin-bottom: 50px;
+  font-size: 42px;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.7);
 }
 
 .courses-grid {
