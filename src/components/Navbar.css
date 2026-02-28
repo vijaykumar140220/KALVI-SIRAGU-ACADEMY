@@ -2,15 +2,18 @@
 .navbar {
   position: fixed;
   top: 0;
+  left: 0; /* Ensure it starts at the very left */
   width: 100%;
   z-index: 1000;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  /* Use box-sizing to prevent padding from increasing the width */
+  box-sizing: border-box; 
+  padding: 15px 25px; /* Reduced side padding for better mobile fit */
 
-  background: rgba(16, 32, 96, 0.75);
+  background: rgba(16, 32, 96, 0.9); /* Slightly more opaque for better readability */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
@@ -24,14 +27,15 @@
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
+  width: 50px; /* Slightly smaller for mobile compatibility */
+  height: 50px;
+  margin-right: 12px;
 }
 
 .academy-name {
   color: gold;
   font-weight: bold;
+  font-size: 1.1rem; /* Responsive font size */
 }
 
 /* NAV LINKS DESKTOP */
@@ -40,6 +44,8 @@
   list-style: none;
   gap: 25px;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
@@ -47,26 +53,11 @@
   color: white;
   font-weight: 500;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .nav-item:hover {
   color: gold;
-}
-
-.nav-item.active {
-  color: gold;
-  border-bottom: 2px solid gold;
-  padding-bottom: 4px;
-}
-
-/* TOGGLE BUTTON */
-.toggle-btn {
-  padding: 8px 15px;
-  border: none;
-  background: gold;
-  color: black;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 /* HAMBURGER */
@@ -75,6 +66,7 @@
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -82,64 +74,66 @@
   height: 3px;
   background: gold;
   transition: 0.3s;
-}
-
-/* Animate to X */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Hide mobile toggle on desktop */
-.mobile-toggle {
-  display: none;
+  border-radius: 2px;
 }
 
 /* ========================= */
-/* MOBILE VIEW */
+/* MOBILE VIEW FIXES */
 /* ========================= */
 
 @media (max-width: 768px) {
-
-  /* Keep navbar structure normal */
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    /* Changed from column to row to keep Logo and Hamburger on one line */
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
   }
 
-  /* Hamburger aligned right */
   .hamburger {
-    display: flex;
-    position: absolute;
-    right: 20px;
-    top: 25px;
+    display: flex; /* Show the 3 lines */
+    position: relative; /* Remove absolute to keep it within the flex flow */
+    top: 0;
+    right: 0;
   }
 
-  /* Hide menu initially */
+  /* Slide-out Menu styling */
   .nav-links {
+    position: absolute;
+    top: 70px; /* Adjust based on navbar height */
+    left: 0;
     width: 100%;
     flex-direction: column;
-    gap: 18px;
-
+    gap: 0;
+    background: #102060;
+    
     max-height: 0;
     overflow: hidden;
-
-    transition: max-height 0.4s ease;
-    background: #102060;
-
-    padding: 0 20px;
+    transition: max-height 0.4s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
 
-  /* When open → slide down */
   .nav-links.open {
-    max-height: 600px;
-    padding: 20px;
+    max-height: 500px;
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+
+  /* Hamburger Animation to X */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
