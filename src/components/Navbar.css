@@ -49,6 +49,7 @@
   margin: 0;
   padding: 0;
   align-items: center;
+  justify-content: center;
 }
 
 .nav-item {
@@ -85,58 +86,58 @@
 /* MOBILE VIEW (Max 768px)   */
 /* ========================= */
 
+/* MOBILE VIEW FIXES */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 15px; /* Tighter padding for small screens */
+    padding: 0 15px; /* Tighter padding for mobile */
   }
 
   .academy-name {
-    font-size: 1rem; /* Smaller text to fit */
+    font-size: 1rem;
+    white-space: nowrap; /* Keeps name on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hamburger {
-    display: flex; /* Show 3 lines now */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    /* Removed absolute positioning to let flexbox handle it */
   }
 
-  /* MOBILE MENU - Hidden by default */
   .nav-links {
     position: absolute;
-    top: 70px; /* Exactly below navbar height */
+    top: 70px; /* Same as navbar height */
     left: 0;
-    width: 100%;
+    width: 100%; /* Spans exactly the screen width */
     background: #102060;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+    align-items: center;
     
-    /* Animation logic */
+    /* Animation */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
     border-top: 1px solid rgba(255, 215, 0, 0.1);
+    
+    /* Ensure no margin pushes this out */
+    margin: 0;
+    padding: 0;
   }
 
-  /* When menu is open */
   .nav-links.open {
-    max-height: 100vh; /* Slides down to show links */
+    max-height: 100vh;
     padding-bottom: 20px;
   }
 
   .nav-item {
     width: 100%;
-    padding: 15px 25px;
+    padding: 15px 0; /* Vertical padding only to avoid side push */
+    text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
-  }
-
-  /* Hamburger Animation to X */
-  .hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
+  }}
