@@ -7,42 +7,53 @@
   height: 70px;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between Left (Logo/Name) and Right (Menu) */
   align-items: center;
-  
-  /* CRITICAL: Stops horizontal scroll */
   box-sizing: border-box; 
-  padding: 0 20px;
-  margin: 0; /* Added margin 0 */
-
-  background: rgba(16, 32, 96, 0.9);
+  padding: 0 15px;
+  background: rgba(16, 32, 96, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* LEFT SIDE (Logo + Name) */
 .nav-left {
   display: flex;
   align-items: center;
-  flex-shrink: 1; /* Allow this to shrink on small screens */
-  min-width: 0;    /* Needed for text-overflow to work */
   gap: 10px;
+  flex: 1;      /* Takes up available middle space */
+  min-width: 0; /* Important for ellipsis to work */
 }
 
 .logo {
-  width: 45px;
-  height: 45px;
-  flex-shrink: 0; /* Keep logo from squishing */
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0; /* Logo won't squash */
 }
 
 .academy-name {
   color: gold;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   white-space: nowrap; 
-  overflow: hidden;         /* Added to hide extra text */
-  text-overflow: ellipsis;  /* Added to show "..." if too long */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if name is too long on small screens */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  flex-shrink: 0; /* Menu won't squash */
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: gold;
+  border-radius: 5px;
 }
 
 /* DESKTOP NAV LINKS */
@@ -50,93 +61,45 @@
   display: flex;
   list-style: none;
   gap: 20px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
 }
 
 .nav-item {
   text-decoration: none;
   color: white;
-  font-weight: 500;
   font-size: 0.95rem;
-  transition: 0.3s;
   cursor: pointer;
-}
-
-.nav-item:hover {
-  color: gold;
-}
-
-/* HAMBURGER VISIBILITY */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  padding: 5px;
-  flex-shrink: 0; /* Prevent hamburger from shrinking */
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: gold;
-  transition: 0.3s;
-  border-radius: 5px;
 }
 
 /* ========================= */
 /* MOBILE VIEW (Max 768px)   */
 /* ========================= */
-
 @media (max-width: 768px) {
-  .navbar {
-    padding: 0 15px; 
-  }
-
-  /* LIMIT WIDTH to leave space for Hamburger */
-  .nav-left {
-    max-width: 50%; 
-  }
-
-  .academy-name {
-    font-size: 1rem; 
+  .nav-links {
+    display: none; /* Hide standard links */
   }
 
   .hamburger {
-    display: flex;
-    z-index: 1001;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%; 
-    background: #102060;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-    border-top: 1px solid rgba(255, 215, 0, 0.1);
-    margin: 0;
-    padding: 0;
+    display: flex; /* Show hamburger */
   }
 
   .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #102060;
+    flex-direction: column;
+    align-items: center;
     max-height: 100vh;
-    padding-bottom: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
   }
 
   .nav-item {
+    padding: 15px 0;
     width: 100%;
-    padding: 15px 0; 
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-sizing: border-box;
   }
 }
