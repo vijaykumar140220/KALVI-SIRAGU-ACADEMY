@@ -1,74 +1,59 @@
+/* 1. RESET & GLOBAL FIXES */
+* {
+  box-sizing: border-box; /* Essential: Prevents padding from adding to width */
+}
+
+html,
 body {
   margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* This kills the horizontal scroll immediately */
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", 
+               "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  transition: all 0.4s ease;
-}
 html {
   scroll-behavior: smooth;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* 2. THEME MODES */
+body.dark {
+  background-color: #0a1a4f;
+  color: white;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+/* 3. SECTION ANIMATIONS */
 section {
   min-height: 100vh;
-}
-section {
+  width: 100%; /* Ensures sections don't overflow */
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
+  overflow: hidden; /* Extra safety for child elements */
 }
 
 section.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* 4. UTILITIES */
 .parallax {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-}
-/* DARK MODE */
-body.dark {
-  background-color: #0a1a4f;
-  color: white;
-}
-
-/* LIGHT MODE */
-body.light {
-  background-color: #ffffff;
-  color: #111;
-}
-
-body {
-  margin: 0;
-  transition: all 0.4s ease;
-}
-
-body.dark {
-  background-color: #0a1a4f;
-  color: white;
-}
-
-body.light {
-  background-color: #ffffff;
-  color: black;
-}
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }

@@ -4,16 +4,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px; /* Fixed height for consistency */
+  height: 70px;
   z-index: 1000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   
-  /* CRITICAL: This stops the horizontal scroll */
+  /* CRITICAL: Stops horizontal scroll */
   box-sizing: border-box; 
   padding: 0 20px;
+  margin: 0; /* Added margin 0 */
 
   background: rgba(16, 32, 96, 0.9);
   backdrop-filter: blur(12px);
@@ -25,20 +25,24 @@
 .nav-left {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Prevents logo from squishing */
+  flex-shrink: 1; /* Allow this to shrink on small screens */
+  min-width: 0;    /* Needed for text-overflow to work */
+  gap: 10px;
 }
 
 .logo {
   width: 45px;
   height: 45px;
-  margin-right: 10px;
+  flex-shrink: 0; /* Keep logo from squishing */
 }
 
 .academy-name {
   color: gold;
   font-weight: bold;
   font-size: 1.2rem;
-  white-space: nowrap; /* Keeps name on one line */
+  white-space: nowrap; 
+  overflow: hidden;         /* Added to hide extra text */
+  text-overflow: ellipsis;  /* Added to show "..." if too long */
 }
 
 /* DESKTOP NAV LINKS */
@@ -49,7 +53,6 @@
   margin: 0;
   padding: 0;
   align-items: center;
-  justify-content: center;
 }
 
 .nav-item {
@@ -72,6 +75,7 @@
   cursor: pointer;
   gap: 5px;
   padding: 5px;
+  flex-shrink: 0; /* Prevent hamburger from shrinking */
 }
 
 .hamburger span {
@@ -86,45 +90,39 @@
 /* MOBILE VIEW (Max 768px)   */
 /* ========================= */
 
-/* MOBILE VIEW FIXES */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 15px; /* Tighter padding for mobile */
+    padding: 0 15px; 
+  }
+
+  /* LIMIT WIDTH to leave space for Hamburger */
+  .nav-left {
+    max-width: 75%; 
   }
 
   .academy-name {
-    font-size: 1rem;
-    white-space: nowrap; /* Keeps name on one line */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1rem; 
   }
 
   .hamburger {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
     z-index: 1001;
-    /* Removed absolute positioning to let flexbox handle it */
   }
 
   .nav-links {
     position: absolute;
-    top: 70px; /* Same as navbar height */
+    top: 70px;
     left: 0;
-    width: 100%; /* Spans exactly the screen width */
+    width: 100%; 
     background: #102060;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-    /* Animation */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
     border-top: 1px solid rgba(255, 215, 0, 0.1);
-    
-    /* Ensure no margin pushes this out */
     margin: 0;
     padding: 0;
   }
@@ -136,8 +134,9 @@
 
   .nav-item {
     width: 100%;
-    padding: 15px 0; /* Vertical padding only to avoid side push */
+    padding: 15px 0; 
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
-  }}
+  }
+}
