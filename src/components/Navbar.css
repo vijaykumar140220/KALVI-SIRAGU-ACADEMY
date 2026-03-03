@@ -10,59 +10,81 @@
   justify-content: space-between; 
   align-items: center;
   box-sizing: border-box; 
-  padding: 0 15px;
+  padding: 0 20px;
   background: rgba(16, 32, 96, 0.95);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 10px;
-  /* This prevents the left side from crushing the hamburger */
+  gap: 12px;
   flex-shrink: 1; 
   min-width: 0;
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   flex-shrink: 0;
 }
 
 .academy-name {
   color: gold;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Fallback for very tiny screens */
+  text-overflow: ellipsis;
 }
 
 /* DESKTOP NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-item {
+  position: relative; /* Required for the underline position */
   text-decoration: none;
   color: white;
   font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
+  padding: 5px 0;
 }
 
+/* --- THE HOVER LINE EFFECT --- */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Start with no width */
+  height: 2px;
+  background-color: gold;
+  transition: width 0.3s ease-in-out; /* Animates width from left to right */
+}
+
+.nav-item:hover::after {
+  width: 100%; /* Full width on hover */
+}
+
+.nav-item:hover {
+  color: gold;
+  transition: 0.3s;
+}
+
+/* HAMBURGER */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
   padding: 5px;
-  flex-shrink: 0; /* Ensures the menu button never shrinks */
-  margin-left: 10px;
+  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -84,9 +106,9 @@
     display: flex;
   }
 
-  /* CRITICAL FIX: Scale down the name to prevent overflow */
+  /* Fixed font size - 0.9rem fits much better than 1.3rem */
   .academy-name {
-    font-size: 1rem; 
+    font-size: 0.9rem; 
   }
 
   .nav-links.open {
@@ -99,25 +121,27 @@
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
-    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    animation: slideDown 0.4s ease forwards;
   }
 
   .nav-item {
-    padding: 15px 0;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 10px 0;
+    font-size: 1.1rem;
   }
 }
 
-/* Fix for small phones (iPhone SE, etc.) */
+/* Tiny phones */
 @media (max-width: 360px) {
   .academy-name {
-    font-size: 0.85rem; /* Further reduction to keep it on one line */
+    font-size: 0.8rem; 
   }
-  
   .logo {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
   }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
