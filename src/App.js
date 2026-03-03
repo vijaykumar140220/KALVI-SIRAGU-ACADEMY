@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from "./pages/Home";
 import About from "./pages/About";

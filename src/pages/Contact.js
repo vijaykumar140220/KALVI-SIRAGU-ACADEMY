@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa";
-import contactBg from "../assets/contact7.jpeg";   // ✅ IMPORT IMAGE
+import { ToastContainer, toast } from "react-toastify";
+import contactBg from "../assets/contact7.jpeg";
 import "./Contact.css";
 
 function Contact() {
   const form = useRef();
-  const [success, setSuccess] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -19,23 +19,33 @@ function Contact() {
         form.current,
         "w50Cm76NNKzuboV9V"
       )
-      .then((result) => {
-        console.log("SUCCESS!", result.text);
-        setSuccess(true);
+      .then(() => {
+
+        // ✅ SUCCESS TOAST
+        toast.success("🎉 Admission Enquiry Sent Successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          theme: "colored",
+        });
+
         form.current.reset();
       })
-      .catch((error) => {
-        console.error("FAILED...", error);
-        alert("Failed to send message. Check console.");
+      .catch(() => {
+
+        // ❌ ERROR TOAST
+        toast.error("❌ Failed to send message. Please try again!", {
+          position: "top-right",
+          autoClose: 3000,
+          theme: "colored",
+        });
+
       });
   };
 
   return (
     <div
       className="contact-wrapper"
-      style={{
-        backgroundImage: `url(${contactBg})`,   // ✅ BACKGROUND IMAGE
-      }}
+      style={{ backgroundImage: `url(${contactBg})` }}
     >
       <motion.div
         className="contact-container"
@@ -92,9 +102,9 @@ function Contact() {
             <input type="text" name="user_phone" placeholder="Phone Number" required />
             <textarea name="message" placeholder="Message / Course Interested" required />
 
-            <button type="submit">Send Admission Enquiry</button>
-
-            {success && <p className="success-msg">✅ Message Sent Successfully!</p>}
+            <button type="submit">
+              Send Admission Enquiry
+            </button>
           </motion.form>
         </div>
 
@@ -111,7 +121,6 @@ function Contact() {
             width="100%"
             height="300"
             style={{ border: 0, borderRadius: "15px" }}
-            allowFullScreen=""
             loading="lazy"
           ></iframe>
         </motion.div>
@@ -126,6 +135,9 @@ function Contact() {
       >
         <FaWhatsapp size={28} />
       </a>
+
+      {/* 🔥 TOAST CONTAINER */}
+      <ToastContainer />
     </div>
   );
 }
