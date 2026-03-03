@@ -1,12 +1,12 @@
-/* FACULTY BACKGROUND IMAGE */
+/* ================= FACULTY BACKGROUND ================= */
+
 .faculty-wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 60px 20px;
-
+  padding: 80px 20px;
   background: url("../assets/faculty.jpeg") no-repeat center center/cover;
 }
 
@@ -16,13 +16,13 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(8, 18, 40, 0.85); /* dark overlay */
+  background: rgba(8, 18, 40, 0.88);
   top: 0;
   left: 0;
   z-index: 1;
 }
 
-/* Keep content above overlay */
+/* CONTENT */
 .faculty-container {
   width: 1100px;
   max-width: 95%;
@@ -30,6 +30,7 @@
   position: relative;
   z-index: 2;
 }
+
 .faculty-container h1 {
   color: gold;
   margin-bottom: 50px;
@@ -37,15 +38,17 @@
   text-shadow: 0 5px 20px rgba(0,0,0,0.7);
 }
 
+/* GRID */
 .faculty-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
+/* CARD */
 .faculty-card {
   background: rgba(255, 255, 255, 0.08);
-  padding: 40px;
+  padding: 35px;
   border-radius: 20px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
@@ -54,24 +57,8 @@
 }
 
 .faculty-card:hover {
-  background: rgba(255, 215, 0, 0.15);
+  background: rgba(255, 215, 0, 0.2);
   transform: translateY(-8px);
-}
-
-.faculty-card h3 {
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-
-.faculty-card p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #ddd;
-}
-
-.faculty-card span {
-  color: gold;
-  font-weight: 500;
 }
 
 .faculty-avatar {
@@ -85,10 +72,49 @@
   align-items: center;
   font-size: 28px;
   font-weight: bold;
-  margin: 0 auto;
+  margin: 0 auto 15px;
 }
 
-.faculty-card:hover {
-  background: rgba(255, 215, 0, 0.2);
+.faculty-card h3 {
+  margin-bottom: 8px;
 }
-    
+
+.faculty-card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #ddd;
+}
+
+.faculty-card span {
+  color: gold;
+  font-weight: 500;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  .faculty-wrapper {
+    padding: 60px 15px;
+  }
+
+  .faculty-container h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;   /* 🔥 ONE COLUMN */
+    gap: 20px;
+  }
+
+  .faculty-card {
+    padding: 25px;
+  }
+
+  .faculty-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+}
