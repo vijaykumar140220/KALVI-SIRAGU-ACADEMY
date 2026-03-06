@@ -29,7 +29,7 @@ function Faculty() {
       subject: "ACCOUNTANCY AND COMMERCE"
     },
     {
-      name: "Ms. SASITHARAN ",
+      name: "Mr. SASITHARAN ",
       qualification: "M.Sc., B.Ed.",
       subject: "MATHEMATICS AND CHEMISTRY"
     },
