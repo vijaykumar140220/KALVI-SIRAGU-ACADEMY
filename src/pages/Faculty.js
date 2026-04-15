@@ -1,27 +1,17 @@
 import { motion } from "framer-motion";
 import "./Faculty.css";
 
-function Faculty() {
+function faculty() {
   const facultyList = [
     {
       name: "Mr. Naveen Kumar",
       qualification: "M.Sc., B.Ed., PGDCA",
-      subject: "MATHEMATICS AND COMPUTER SCIENCE"
+      subject: "MATHEMATICS, COMPUTER SCIENCE AND PHYSICS"
     },
     {
       name: "Ms. Jebarani",
       qualification: "M.Sc., B.Ed.",
       subject: "BUSINESS MATHEMATICS AND BIOLOGY"
-    },
-    {
-      name: "Mr. Arivazhagan",
-      qualification: "M.Sc., B.Ed.",
-      subject: "MATHEMATICS AND COMPUTER SCIENCE"
-    },
-    {
-      name: "Ms. Hema",
-      qualification: "M.Sc., B.Ed.",
-      subject: "MATHEMATICS AND PHYSICS"
     },
     {
       name: "Ms. KEERTHANA ",
@@ -68,4 +58,4 @@ function Faculty() {
   );
 }
 
-export default Faculty;
+export default faculty;
