@@ -23,7 +23,11 @@ function faculty() {
       qualification: "M.Sc., B.Ed.",
       subject: "MATHEMATICS AND CHEMISTRY"
     },
-    
+    {
+      name: "MS. JAYASEELI ",
+      qualification: "B.Sc.,B.A.,B.Ed.",
+      subject: "TAMIL and MATHEMATICS"
+    },
   ];
 
   return (
