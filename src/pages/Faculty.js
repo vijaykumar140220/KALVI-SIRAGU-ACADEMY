@@ -18,11 +18,11 @@ function Faculty() {
       qualification: "M.Com., B.Ed.",
       subject: "ACCOUNTANCY AND COMMERCE"
     },
-    {
-      name: "Mr. Sasitharan",
-      qualification: "M.Sc., B.Ed.",
-      subject: "MATHEMATICS AND CHEMISTRY"
-    },
+    // {
+    //   name: "Mr. Sasitharan",
+    //   qualification: "M.Sc., B.Ed.",
+    //   subject: "MATHEMATICS AND CHEMISTRY"
+    // },
     {
       name: "Ms. Jayaseeli",
       qualification: "B.Sc., B.A., B.Ed.",
