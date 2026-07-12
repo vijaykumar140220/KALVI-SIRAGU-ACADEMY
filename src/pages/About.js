@@ -2,32 +2,38 @@ import { motion } from "framer-motion";
 import "./About.css";
 
 function About() {
+  const aboutVideoUrl =
+    "https://www.youtube.com/embed/P90X9xxm1gc?autoplay=1&mute=1&loop=1&playlist=P90X9xxm1gc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
+
   return (
-    
     <div className="about-page">
-
-      {/* Hero Section */}
       <section className="hero">
-       <motion.div
-  className="hero-content"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
->
-  <h1>
-    <span className="highlight">Kalvi Siragu Academy</span>
-  </h1>
+        <iframe
+          className="about-video"
+          src={aboutVideoUrl}
+          title="Kalvi Siragu Academy about background video"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          aria-hidden="true"
+        />
 
-  <p>
-    Empowering students from 
-    <span className="highlight-text"> 6th to 12th (CBSE & State Board) </span>
-    with strong fundamentals, confidence, and academic excellence.
-  </p>
-</motion.div>
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1>
+            <span className="highlight">Kalvi Siragu Academy</span>
+          </h1>
 
+          <p>
+            Empowering students from
+            <span className="highlight-text"> 6th to 12th (CBSE & State Board) </span>
+            with strong fundamentals, confidence, and academic excellence.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Who We Are */}
       <section className="section light">
         <div className="container">
           <h2>Who We Are</h2>
@@ -37,13 +43,12 @@ function About() {
             personal attention, and continuous motivation.
           </p>
           <p>
-            We don’t just focus on marks — we build discipline, conceptual
+            We don't just focus on marks - we build discipline, conceptual
             clarity, and long-term academic success.
           </p>
         </div>
       </section>
 
-      {/* Vision & Mission */}
       <section className="section dark">
         <div className="container">
           <div className="grid-2">
@@ -68,7 +73,6 @@ function About() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

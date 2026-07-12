@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FaWhatsapp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
-import contactBg from "../assets/contact7.jpeg";
 import "./Contact.css";
 
 function Contact() {
   const form = useRef();
+  const contactVideoUrl =
+    "https://www.youtube.com/embed/HbH-k6Us7UQ?autoplay=1&mute=1&loop=1&playlist=HbH-k6Us7UQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,33 +21,33 @@ function Contact() {
         "w50Cm76NNKzuboV9V"
       )
       .then(() => {
-
-        // ✅ SUCCESS TOAST
-        toast.success("🎉 Admission Enquiry Sent Successfully!", {
+        toast.success("Admission Enquiry Sent Successfully!", {
           position: "top-right",
           autoClose: 3000,
-          theme: "colored",
+          theme: "colored"
         });
 
         form.current.reset();
       })
       .catch(() => {
-
-        // ❌ ERROR TOAST
-        toast.error("❌ Failed to send message. Please try again!", {
+        toast.error("Failed to send message. Please try again!", {
           position: "top-right",
           autoClose: 3000,
-          theme: "colored",
+          theme: "colored"
         });
-
       });
   };
 
   return (
-    <div
-      className="contact-wrapper"
-      style={{ backgroundImage: `url(${contactBg})` }}
-    >
+    <div className="contact-wrapper">
+      <iframe
+        className="contact-video"
+        src={contactVideoUrl}
+        title="Kalvi Siragu Academy contact background video"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        aria-hidden="true"
+      />
+
       <motion.div
         className="contact-container"
         initial={{ opacity: 0, y: 50 }}
@@ -56,28 +57,30 @@ function Contact() {
         <h1>Contact Us</h1>
 
         <div className="contact-grid">
-
-          {/* LEFT SIDE */}
           <motion.div
             className="contact-info"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3>📍 Address</h3>
+            <h3>Address</h3>
             <p>
-              KALVI SIRAGU ACADEMY,<br />
-              6/13, Naidu Shop St,<br />
-              Opposite to Ashok Jewellers,<br />
-              Radha Nagar, Chromepet,<br />
+              KALVI SIRAGU ACADEMY,
+              <br />
+              6/13, Naidu Shop St,
+              <br />
+              Opposite to Ashok Jewellers,
+              <br />
+              Radha Nagar, Chromepet,
+              <br />
               Chennai - 600044
             </p>
 
-            <h3>📞 Phone</h3>
+            <h3>Phone</h3>
             <p>+91 63818 83760</p>
             <p>+91 86374 74173</p>
 
-            <h3>📸 Instagram</h3>
+            <h3>Instagram</h3>
             <a
               href="https://www.instagram.com/kalvi_siragu_academy"
               target="_blank"
@@ -88,7 +91,6 @@ function Contact() {
             </a>
           </motion.div>
 
-          {/* RIGHT SIDE FORM */}
           <motion.form
             ref={form}
             onSubmit={sendEmail}
@@ -102,13 +104,10 @@ function Contact() {
             <input type="text" name="user_phone" placeholder="Phone Number" required />
             <textarea name="message" placeholder="Message / Course Interested" required />
 
-            <button type="submit">
-              Send Admission Enquiry
-            </button>
+            <button type="submit">Send Admission Enquiry</button>
           </motion.form>
         </div>
 
-        {/* GOOGLE MAP */}
         <motion.div
           className="map-container"
           initial={{ opacity: 0 }}
@@ -122,11 +121,10 @@ function Contact() {
             height="300"
             style={{ border: 0, borderRadius: "15px" }}
             loading="lazy"
-          ></iframe>
+          />
         </motion.div>
       </motion.div>
 
-      {/* WHATSAPP FLOAT BUTTON */}
       <a
         href="https://wa.me/916381883760"
         className="whatsapp-float"
@@ -136,7 +134,6 @@ function Contact() {
         <FaWhatsapp size={28} />
       </a>
 
-      {/* 🔥 TOAST CONTAINER */}
       <ToastContainer />
     </div>
   );

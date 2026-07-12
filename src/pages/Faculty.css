@@ -6,8 +6,24 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
   padding: 80px 20px;
   background: url("../assets/faculty.jpeg") no-repeat center center/cover;
+}
+
+.faculty-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: -130px;
+  bottom: 30px;
+  background:
+    radial-gradient(circle, rgba(255, 215, 0, 0.22), transparent 58%),
+    radial-gradient(circle at 70% 20%, rgba(77, 163, 255, 0.22), transparent 48%);
+  filter: blur(2px);
+  z-index: 1;
+  animation: softGlow 9s ease-in-out infinite;
 }
 
 /* DARK OVERLAY */
@@ -47,18 +63,41 @@
 
 /* CARD */
 .faculty-card {
-  background: rgba(255, 255, 255, 0.08);
+  min-height: 245px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.05));
   padding: 35px;
-  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   color: white;
-  transition: 0.4s;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.faculty-card::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -50px;
+  right: -40px;
+  background: rgba(255, 215, 0, 0.18);
+  border-radius: 50%;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0.8;
 }
 
 .faculty-card:hover {
   background: rgba(255, 215, 0, 0.2);
-  transform: translateY(-8px);
+  border-color: rgba(255, 215, 0, 0.45);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.62);
+}
+
+.faculty-card:hover::before {
+  transform: scale(1.5);
+  opacity: 1;
 }
 
 .faculty-avatar {
@@ -73,21 +112,42 @@
   font-size: 28px;
   font-weight: bold;
   margin: 0 auto 15px;
+  position: relative;
+  z-index: 1;
 }
 
 .faculty-card h3 {
   margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .faculty-card p {
   font-size: 14px;
   margin-bottom: 8px;
   color: #ddd;
+  position: relative;
+  z-index: 1;
 }
 
 .faculty-card span {
   color: gold;
   font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes softGlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: translate3d(32px, -22px, 0) scale(1.08);
+    opacity: 1;
+  }
 }
 
 /* ================= MOBILE FIX ================= */
@@ -109,6 +169,7 @@
   }
 
   .faculty-card {
+    min-height: auto;
     padding: 25px;
   }
 
