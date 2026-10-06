@@ -6,17 +6,17 @@ function Faculty() {
     {
       name: "Mr. Naveen Kumar",
       qualification: "M.Sc., B.Ed., PGDCA",
-      subject: "MATHEMATICS, COMPUTER SCIENCE AND ENGLISH"
+      // subject: "MATHEMATICS, COMPUTER SCIENCE AND ENGLISH"
     },
     {
       name: "Ms. Jebarani",
       qualification: "M.Sc., B.Ed.",
-      subject: "BUSINESS MATHEMATICS, BIOLOGY AND CHEMISTRY"
+      // subject: "BUSINESS MATHEMATICS, BIOLOGY AND CHEMISTRY"
     },
     {
       name: "Ms. Keerthana",
       qualification: "M.Com., B.Ed.",
-      subject: "ACCOUNTANCY AND COMMERCE"
+      // subject: "ACCOUNTANCY AND COMMERCE"
     },
     // {
     //   name: "Mr. Sasitharan",
@@ -26,14 +26,26 @@ function Faculty() {
     {
       name: "Ms. Jayaseeli",
       qualification: "B.Sc., B.A., B.Ed.",
-      subject: "TAMIL AND MATHEMATICS"
+      // subject: "TAMIL AND MATHEMATICS"
     },
     {
-      name: "Mr. K. Vimal",
+      name: "Ms. Rakshitha",
+      qualification: "BCA.",
+      // subject: "MATHEMATICS AND PHYSICS"
+    },
+    {
+      name: "Ms. Yuvasri ",
+      qualification: "B.Sc (CS).",
+      // subject: "MATHEMATICS AND PHYSICS"
+    },
+    {
+      name: "Ms.J.Evency",
       qualification: "M.Sc., B.Ed.",
-      subject: "MATHEMATICS AND PHYSICS"
+      // subject: "MATHEMATICS AND PHYSICS"
     }
+    
   ];
+  
 
   const gridVariants = {
     hidden: {},
